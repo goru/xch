@@ -26,7 +26,7 @@ def http_get(
     except URLError as e:
         error = e
     else:
-        html = response.read().decode("cp932")
+        html = response.read().decode("cp932", errors="replace")
 
     return (html, error)
 
