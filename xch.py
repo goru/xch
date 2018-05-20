@@ -16,7 +16,7 @@ def http_get(
     encoding='cp932'):
 
     request = Request(url, None, headers)
-    html = None
+    body = None
     error = None
 
     try:
@@ -26,9 +26,9 @@ def http_get(
     except URLError as e:
         error = e
     else:
-        html = response.read().decode(encoding, errors='replace')
+        body = response.read().decode(encoding, errors='replace')
 
-    return (html, error)
+    return (body, error)
 
 def pass_surrogate_pair(string):
     if string:
