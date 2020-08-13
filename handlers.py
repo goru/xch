@@ -37,7 +37,7 @@ def command_bbsmenu(args):
         return []
     
     soup = BeautifulSoup(html, 'html.parser')
-    elements = soup.find_all('a', href=re.compile('http://[^.]+\.(\dch\.net)|(bbspink\.com)/[^/]+/'))
+    elements = soup.find_all('a', href=re.compile('https?://[^.]+\.(\dch\.net)|(bbspink\.com)/[^/]+/'))
     bbsmenu = [classes.Bbs.from_bs4_element(e) for e in elements]
 
     for b in bbsmenu:
